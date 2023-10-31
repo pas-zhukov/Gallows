@@ -23,7 +23,6 @@ public class WordGame {
         this.gallows = new Gallows();
         for (int i = 0; i < this.word.length(); i++) {
             Character ch = this.word.charAt(i);
-            System.out.println(ch);
             this.letters.add(ch);
         }
     }
