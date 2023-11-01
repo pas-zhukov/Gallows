@@ -33,8 +33,7 @@ public class Main {
     public static void playGame(@NotNull WordGame game) {
         Scanner reader = new Scanner(System.in);
         while (true) {
-            System.out.print("\033[H\033[J");
-            System.out.flush();
+
             if (game.isVictory()) {
                 System.out.println("===== ПОБЕДА! =====");
                 break;
@@ -48,6 +47,8 @@ public class Main {
 
             System.out.println("+++ Предложи букву для отгадывания: +++");
             String userInput = reader.next().toLowerCase().trim();
+            System.out.print("\033[H\033[J");
+            System.out.flush();
             if (!isLetter(userInput)) {
                 System.out.println("!!! Для отгадывания используй только буквы латинского алфавита. Причем одну за раз! Давай еще разок.");
                 continue;
