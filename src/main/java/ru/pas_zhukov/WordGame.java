@@ -4,16 +4,14 @@ import java.util.Arrays;
 import java.util.Set;
 import java.util.HashSet;
 
-import ru.pas_zhukov.AttemptResult;
-
 
 public class WordGame {
 
     private final String word;
-    private Gallows gallows;
+    private final Gallows gallows;
     private final Set<Character> letters = new HashSet<>();
-    private Set<Character> guessedLetters = new HashSet<>();
-    private Set<Character> wrongGuessedLetters = new HashSet<>();
+    private final Set<Character> guessedLetters = new HashSet<>();
+    private final Set<Character> wrongGuessedLetters = new HashSet<>();
 
     public WordGame(String word) {
         this.word = word.toLowerCase();
@@ -27,12 +25,10 @@ public class WordGame {
     public AttemptResult newAttempt(Character letter) {
         if (guessedLetters.contains(letter) || wrongGuessedLetters.contains(letter)) {
             return AttemptResult.DUPLICATE;
-        }
-        else if (letters.contains(letter)) {
+        } else if (letters.contains(letter)) {
             guessedLetters.add(letter);
             return AttemptResult.SUCCESS;
-        }
-        else {
+        } else {
             gallows.nextState();
             wrongGuessedLetters.add(letter);
             return AttemptResult.WRONG_GUESS;
@@ -54,7 +50,8 @@ public class WordGame {
                 wordWithGuessed[i] = '_';
             }
         }
-        return Arrays.toString(wordWithGuessed);
+        String wordStatus = Arrays.toString(wordWithGuessed);
+        return getGallows().toString() + "\n" + wordStatus;
     }
 
     boolean isVictory() {
