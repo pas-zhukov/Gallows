@@ -9,8 +9,6 @@ import ru.pas_zhukov.AttemptResult;
 
 public class WordGame {
 
-    private static final Set<Character> asciiLetters = Set.of('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
-
     private final String word;
     private Gallows gallows;
     private final Set<Character> letters = new HashSet<>();
@@ -27,10 +25,7 @@ public class WordGame {
     }
 
     public AttemptResult newAttempt(Character letter) {
-        if  (!asciiLetters.contains(letter)) {
-            return AttemptResult.NOT_LETTER;
-        }
-        else if (guessedLetters.contains(letter) || wrongGuessedLetters.contains(letter)) {
+        if (guessedLetters.contains(letter) || wrongGuessedLetters.contains(letter)) {
             return AttemptResult.DUPLICATE;
         }
         else if (letters.contains(letter)) {
