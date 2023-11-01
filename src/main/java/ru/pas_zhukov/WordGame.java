@@ -86,4 +86,8 @@ public class WordGame {
     boolean isVictory() {
         return guessedLetters.containsAll(letters);
     }
+
+    boolean isDefeat() {
+        return gallows.getAttemptsCount() == 0;
+    }
 }

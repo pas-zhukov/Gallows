@@ -27,13 +27,13 @@ public class Main {
     }
 
     public static void playGame(@NotNull WordGame game) {
+        Scanner reader = new Scanner(System.in);
         while (true) {
-            Scanner reader = new Scanner(System.in);
             if (game.isVictory()) {
                 System.out.println("Поздравляю, ты победил!");
                 break;
             }
-            if (game.getGallows().getAttemptsCount() == 0) {
+            if (game.isDefeat()) {
                 System.out.println("Это поражение, брат...");
                 break;
             }
@@ -41,6 +41,7 @@ public class Main {
             System.out.println(game.toString());
             System.out.println("Предложи букву для отгадывания:");
             String userInput = reader.next().toLowerCase().trim();
+
             AttemptResult result = game.newAttempt(userInput.charAt(0));
             if (result == AttemptResult.NOT_LETTER) {
                 System.out.println("В задаче используются только буквы латинского алфавита! Попробуй еще разок.");
