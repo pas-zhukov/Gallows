@@ -31,22 +31,6 @@ public class WordGame {
         this("Devman");
     }
 
-    public String getWord() {
-        return word;
-    }
-
-    public Set<Character> getLetters() {
-        return letters;
-    }
-
-    public Set<Character> getGuessedLetters() {
-        return guessedLetters;
-    }
-
-    public Set<Character> getWrongGuessedLetters() {
-        return wrongGuessedLetters;
-    }
-
     public AttemptResult newAttempt(Character letter) {
         if  (!asciiLetters.contains(letter)) {
             return AttemptResult.NOT_LETTER;
