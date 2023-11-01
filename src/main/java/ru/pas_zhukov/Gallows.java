@@ -1,8 +1,5 @@
 package ru.pas_zhukov;
 
-import ru.pas_zhukov.WrongGallowsStateIndexException;
-import ru.pas_zhukov.GallowsFinalStateReachedException;
-
 public final class Gallows {
     public static final String[] states = {
             "     _________\n    |         |\n    |          \n    |            \n    |            \n    |\n    |",
@@ -14,7 +11,7 @@ public final class Gallows {
             "     _________\n    |         |\n    |         0\n    |        /|\\\n    |        / \\\n    |\n    |",
     };
 
-    private int current_state;
+    private int currentState;
 
     public Gallows() {
         this(0);
@@ -25,12 +22,12 @@ public final class Gallows {
     }
 
     public int getState() {
-        return current_state;
+        return currentState;
     }
 
     public void setState(int stateIndex) throws WrongGallowsStateIndexException {
         if (stateIndex < states.length && stateIndex >= 0) {
-            this.current_state = stateIndex;
+            this.currentState = stateIndex;
         }
         else {
             throw new WrongGallowsStateIndexException();
@@ -38,8 +35,8 @@ public final class Gallows {
     }
 
     public void nextState() throws GallowsFinalStateReachedException {
-        if (this.current_state < states.length) {
-            this.current_state++;
+        if (this.currentState < states.length) {
+            this.currentState++;
         }
         else {
             throw new GallowsFinalStateReachedException();
@@ -52,7 +49,7 @@ public final class Gallows {
 
     @Override
     public String toString() {
-        return states[current_state];
+        return states[currentState];
     }
 }
 

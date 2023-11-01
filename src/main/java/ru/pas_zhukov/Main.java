@@ -14,8 +14,8 @@ public class Main {
 
         while (true) {
             System.out.println("Начать новую игру? [Y/n]");
-            String user_input = reader.next();
-            if (user_input.trim().equals("n")) {
+            String userInput = reader.next();
+            if (userInput.trim().equals("n")) {
                 break;
             }
             WordGame game = new WordGame();
@@ -40,8 +40,8 @@ public class Main {
             System.out.println(game.getGallows().toString());
             System.out.println(game.toString());
             System.out.println("Предложи букву для отгадывания:");
-            String user_input = reader.next().toLowerCase().trim();
-            AttemptResult result = game.newAttempt(user_input.charAt(0));
+            String userInput = reader.next().toLowerCase().trim();
+            AttemptResult result = game.newAttempt(userInput.charAt(0));
             if (result == AttemptResult.NOT_LETTER) {
                 System.out.println("В задаче используются только буквы латинского алфавита! Попробуй еще разок.");
             }
