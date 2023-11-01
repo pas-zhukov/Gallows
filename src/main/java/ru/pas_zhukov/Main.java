@@ -3,6 +3,7 @@ package ru.pas_zhukov;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import org.jetbrains.annotations.NotNull;
 import ru.pas_zhukov.WordGame;
 import ru.pas_zhukov.AttemptResult;
 
@@ -25,7 +26,7 @@ public class Main {
 
     }
 
-    public static void playGame(WordGame game) {
+    public static void playGame(@NotNull WordGame game) {
         while (true) {
             Scanner reader = new Scanner(System.in);
             if (game.isVictory()) {
