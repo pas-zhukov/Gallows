@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Set;
 import java.util.HashSet;
 
-
 import ru.pas_zhukov.AttemptResult;
 
 
@@ -25,10 +24,6 @@ public class WordGame {
             Character ch = this.word.charAt(i);
             this.letters.add(ch);
         }
-    }
-
-    public WordGame() {
-        this("Devman");
     }
 
     public AttemptResult newAttempt(Character letter) {

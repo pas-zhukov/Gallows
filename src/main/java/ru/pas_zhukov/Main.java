@@ -1,11 +1,10 @@
 package ru.pas_zhukov;
 
-import java.util.Arrays;
+
 import java.util.Scanner;
 
 import org.jetbrains.annotations.NotNull;
-import ru.pas_zhukov.WordGame;
-import ru.pas_zhukov.AttemptResult;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -18,7 +17,8 @@ public class Main {
             if (userInput.trim().equals("n")) {
                 break;
             }
-            WordGame game = new WordGame();
+            Words words = new Words();
+            WordGame game = new WordGame(words.getRandomWord());
             System.out.println("Пора отгадать слово!");
             Main.playGame(game);
 
@@ -57,4 +57,6 @@ public class Main {
 
         }
     }
+
+
 }
