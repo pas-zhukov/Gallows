@@ -37,8 +37,8 @@ public class Main {
                 System.out.println("Это поражение, брат...");
                 break;
             }
-            System.out.println(game.getGallows().toString());
-            System.out.println(game.toString());
+            System.out.println(game.getGallows());
+            System.out.println(game);
             System.out.println("Предложи букву для отгадывания:");
             String userInput = reader.next().toLowerCase().trim();
 
