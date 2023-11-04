@@ -15,16 +15,20 @@ public class Main {
         while (true) {
             System.out.println("Начать новую игру? [Y/n]");
 
-            String userInput = reader.next();
-            if (userInput.trim().equals("n")) {
+            String userInput = reader.next().trim().toLowerCase();
+            if (userInput.equals("n")) {
                 break;
+            } else if (userInput.equals("y")) {
+
+                System.out.println("\n===== ДА НАЧНЁТСЯ ИГРА! =====");
+
+                Words words = new Words();
+                WordGame game = new WordGame(words.getRandomWord());
+                playGame(game);
             }
-
-            System.out.println("\n===== ДА НАЧНЁТСЯ ИГРА! =====");
-
-            Words words = new Words();
-            WordGame game = new WordGame(words.getRandomWord());
-            playGame(game);
+            else {
+                System.out.println("Некорректный ввод.");
+            }
 
         }
 
